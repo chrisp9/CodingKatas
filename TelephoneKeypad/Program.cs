@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LettersAndWords
+namespace TelephoneKeypad
 {
    class Program
    {
@@ -25,7 +25,7 @@ namespace LettersAndWords
 
          var results = Solve(number);
 
-         foreach(var item in results)
+         foreach (var item in results)
          {
             Console.WriteLine(item);
          }
@@ -48,7 +48,7 @@ namespace LettersAndWords
             queue.Enqueue(list);
          }
 
-         while(queue.TryPeek(out _))
+         while (queue.TryPeek(out _))
          {
             var nextItem = queue.Dequeue();
 
