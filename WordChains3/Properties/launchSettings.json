@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WordChains3": {
+      "commandName": "Project",
+      "commandLineArgs": "smells joking c:\\src\\dictionary.txt"
+    }
+  }
+}

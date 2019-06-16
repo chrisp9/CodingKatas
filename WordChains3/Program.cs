@@ -30,20 +30,28 @@ namespace CodingKatas
          var sourceWord = parsedArgs.SourceWord;
          var targetWord = parsedArgs.TargetWord;
 
-         var wordDictionary = new WordDictionary(fileContent);
+         var wordDictionary = new WordDictionary();
 
-         if (!wordDictionary.Contains(sourceWord) || !wordDictionary.Contains(targetWord))
+         foreach (var line in fileContent)
          {
-            PrintError("Source word and Target word must both be valid words");
+            if(line.Length == sourceWord.Length)
+               wordDictionary.Insert(line);
          }
 
-         var finder = new SolutionFinder(wordDictionary);
-         var list = finder.FindValidPermutations(parsedArgs.SourceWord, parsedArgs.TargetWord);
-         list.Reverse();
+         //if (!wordDictionary.Contains(sourceWord) || !wordDictionary.Contains(targetWord))
+         //{
+         //   PrintError("Source word and Target word must both be valid words");
+         //}
 
-         Console.WriteLine($"Found path from {parsedArgs.SourceWord} to {parsedArgs.TargetWord}:");
+         var result = wordDictionary.FindPath(parsedArgs.SourceWord, parsedArgs.TargetWord);
 
-         foreach (var item in list)
+         //var finder = new SolutionFinder(wordDictionary);
+         //var list = finder.FindValidPermutations(parsedArgs.SourceWord, parsedArgs.TargetWord);
+         //list.Reverse();
+
+         //Console.WriteLine($"Found path from {parsedArgs.SourceWord} to {parsedArgs.TargetWord}:");
+
+         foreach (var item in result)
          {
             Console.WriteLine(item);
          }
